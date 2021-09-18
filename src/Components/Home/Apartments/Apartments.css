@@ -1,0 +1,17 @@
+.apartments-title{
+    margin-top: 80px;
+    text-align: center;
+    font-weight: 900;
+}
+.apartments-title h2{
+    font-weight: 900;
+}
+
+.apartments {
+    padding-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    grid-gap: 50px;
+    justify-items: center;
+    
+}

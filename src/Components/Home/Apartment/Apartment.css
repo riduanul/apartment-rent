@@ -1,0 +1,32 @@
+.apartment {
+    width: 310px;
+    height: 380px ;
+    padding: 20px;
+    box-shadow: 10px 10px 12px lightgray;
+}
+.apartment img {
+    padding:0px 20px 20px 0px;
+    width: 290px;
+    height: auto;
+}
+
+.price, .rooms, h4 {
+    font-weight: 900;
+    padding-top: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.apartment h5{
+    text-align: left;
+    font-weight: 900;
+    padding-top: 5px;
+}
+
+small{
+    color: gray;
+    font-weight: 400;
+}
+.location {
+    text-align: left;
+}
