@@ -1,6 +1,6 @@
 .apartment {
     width: 310px;
-    height: 380px ;
+    height: 370px ;
     padding: 20px;
     box-shadow: 10px 10px 12px lightgray;
 }
@@ -23,7 +23,7 @@
     padding-top: 5px;
 }
 
-small{
+.apartment small{
     color: gray;
     font-weight: 400;
 }

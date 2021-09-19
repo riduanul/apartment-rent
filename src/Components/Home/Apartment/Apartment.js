@@ -12,7 +12,7 @@ export default function Apartment(props) {
                 <p className="location" > <span ><FontAwesomeIcon icon={faMapMarker} />  <small >Nasirabad H/S, Chattogram.</small></span> </p>
             <div className="rooms">
                 <span> <FontAwesomeIcon icon={faBed} /> <small>3 Bedrooms</small></span>
-                <span> <FontAwesomeIcon icon={faBath} /> <small>3 Bedrooms</small></span>
+                <span> <FontAwesomeIcon icon={faBath} /> <small>2 Bathrooms</small></span>
             </div>
             <div className="price">
                 <h4>{price}</h4>

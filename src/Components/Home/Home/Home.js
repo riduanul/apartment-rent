@@ -1,7 +1,9 @@
 import React from 'react'
 import Apartments from '../Apartments/Apartments'
 import Banner from '../Banner/Banner'
+import Footer from '../Footer/Footer'
 import Navbar from '../Navbar/Navbar'
+import Services from '../Services/Services'
 
 export default function Home() {
     return (
@@ -9,6 +11,8 @@ export default function Home() {
             <Navbar/>
             <Banner/>
             <Apartments/>
+            <Services/>
+            <Footer/>
         </div>
     )
 }

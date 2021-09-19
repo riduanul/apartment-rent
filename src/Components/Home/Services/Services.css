@@ -1,0 +1,35 @@
+.services {
+    margin-top: 80px;
+}
+
+.services-title p {
+    font-weight: bold;
+    color: rgb(20, 92, 64);
+}
+.services-title {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 50px;
+
+}
+
+.services-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-items: center;
+}
+
+.service {
+    text-align: center;
+    width: 300px;
+    height: 350px;
+    line-height: 30px;
+}
+.service img {
+    padding-bottom: 20px;
+}
+
+.service h5 {
+    font-weight: bolder;
+}
