@@ -1,12 +1,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
+import './Navbar.css';
+import {Link} from 'react-router-dom';
 
 export default function Navbar() {
     return (
        <div classNameName="container">
            <nav className="navbar navbar-expand-lg navbar-light bg-light">
   <div className="container-fluid">
-    <a className="navbar-brand" href="#">Apartment Rent</a>
+    <Link to="/" className="navbar-brand" href="#">Apartment Rent</Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -24,16 +26,16 @@ export default function Navbar() {
         <li className="nav-item">
           <a className="nav-link" href="#">Content</a>
         </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#">Event</a>
-        </li>
+       <Link to="booking"> <li className="nav-item">
+          <a className="nav-link" href="#">Dashboard</a>
+        </li></Link>
         <li className="nav-item">
           <a className="nav-link" href="#">Contact</a>
         </li>
        
       </ul>
       
-        <button className="btn btn-outline-success" type="submit">Login</button>
+        <Link to="login"><button className="btn btn-outline-success" type="submit">Login</button></Link>
      
     </div>
   </div>

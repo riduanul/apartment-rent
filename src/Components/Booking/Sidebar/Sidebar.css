@@ -1,0 +1,24 @@
+.sidebar ul li {
+    list-style:none;
+    line-height: 40px;
+    
+}
+
+.sidebar ul a{
+    text-decoration: none; 
+    color: black;
+}
+
+.sidebar img{
+   margin: 10px 0px 50px 20px;
+}
+
+.logout  {
+    margin: 200px 0px 0px 20px;
+    text-decoration: none;
+}
+
+.logout a{
+    text-decoration: none;
+    color:red;
+}

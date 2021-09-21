@@ -2,6 +2,7 @@ import React from 'react';
 import './Apartment.css';
 import { faBed, faBath, faMapMarker} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {Link} from 'react-router-dom';
 
 export default function Apartment(props) {
     const {img, title, price} = props.apartment;
@@ -16,7 +17,14 @@ export default function Apartment(props) {
             </div>
             <div className="price">
                 <h4>{price}</h4>
-                <button className="btn btn-success">Details</button>
+                <Link to={{
+                    pathname: `details/${title}`,
+                    state: {
+                        img: img,
+                        title: title,
+                        price: price
+                    }}
+                    }><button className="btn btn-success">Details</button></Link>
             </div>
 
 

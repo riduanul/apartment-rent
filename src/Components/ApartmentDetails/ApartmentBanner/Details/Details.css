@@ -1,0 +1,33 @@
+.details {
+
+    margin:50px;
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 20px;
+    line-height: 40px;
+}
+.booking input, textarea {
+  
+    width: 300px;
+    line-height: 30px;
+    margin: 5px;
+
+}
+.room-detail {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    column-gap: 18px;
+    justify-self: 5px;
+    margin-top:15px;
+}
+
+.title-price {
+    display: flex;
+    justify-content: space-between;
+}
+
+.request-btn {
+    
+    width: 310px;
+}
+

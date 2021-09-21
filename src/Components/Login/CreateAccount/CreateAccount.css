@@ -1,0 +1,41 @@
+.create-account {
+   
+    border:1px solid gray;
+    width: 400px;
+    height: 430px;
+    margin: 50px auto auto auto;
+    padding: 40px;
+    line-height: 40px;
+}
+
+.create-account input[type=text],[type=password] {
+    border:none;
+    border-bottom: 1px solid gray;
+    width: 100%;
+
+}
+.create-account input[type=text],[type=password]:focus {
+    outline: none;
+}
+
+.login-btn {
+    width: 100%;
+    background-color: rgb(22, 105, 80);
+    border:none;
+    color:white;
+    cursor: pointer;
+    height: 60px;
+    
+}
+.login-btn:hover{
+    background-color: rgb(7, 109, 66);
+}
+
+
+.create-account a{
+  text-decoration: none; 
+}
+.create-account p {
+    text-align: center;
+    color:black;
+}
