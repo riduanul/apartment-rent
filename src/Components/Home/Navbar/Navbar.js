@@ -2,14 +2,18 @@
 import React from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../../Context/AuthContext";
+import logo from "../../../logos/Logo.png";
 
 export default function Navbar() {
+  const { currentUser, logout } = useAuth();
+
   return (
-    <div classNameName="container">
+    <div className="container">
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           <Link to="/" className="navbar-brand" href="#">
-            Apartment Rent
+            <img src={logo} alt="" height="50" width="100%" />
           </Link>
           <button
             className="navbar-toggler"
@@ -23,11 +27,13 @@ export default function Navbar() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0 ">
               <li className="nav-item">
-                <a className="nav-link active" href="#">
-                  Home
-                </a>
+                <Link to="/">
+                  <a className="nav-link active" href="#">
+                    Home
+                  </a>
+                </Link>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">
@@ -35,35 +41,45 @@ export default function Navbar() {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <a className="nav-link" href="#service">
                   Service
                 </a>
               </li>
+
               <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Content
-                </a>
-              </li>
-              <Link to="/bookinglist">
-                {" "}
-                <li className="nav-item">
+                <Link to="/bookinglist">
                   <a className="nav-link" href="#">
                     Dashboard
                   </a>
-                </li>
-              </Link>
+                </Link>
+              </li>
+
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <a className="nav-link" href="#footer">
                   Contact
                 </a>
               </li>
             </ul>
-
-            <Link to="login">
-              <button className="btn btn-outline-success" type="submit">
-                Login
-              </button>
-            </Link>
+            {currentUser && (
+              <span style={{ padding: "5px" }}>{currentUser.displayName}</span>
+            )}
+            {currentUser ? (
+              <Link to="/">
+                <button
+                  onClick={logout}
+                  className="btn btn-outline-success"
+                  type="submit"
+                >
+                  Logout
+                </button>
+              </Link>
+            ) : (
+              <Link to="login">
+                <button className="btn btn-outline-success" type="submit">
+                  Login
+                </button>
+              </Link>
+            )}
           </div>
         </div>
       </nav>

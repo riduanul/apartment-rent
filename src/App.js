@@ -4,29 +4,34 @@ import ApartmentDetails from "./Components/ApartmentDetails/ApartmentDetails/Apa
 import AddRentHouse from "./Components/Booking/AddRentHouse/AddRentHouse";
 import BookingList from "./Components/Booking/BookingList/BookingList";
 import MyRent from "./Components/Booking/MyRent/MyRent";
+import Sidebar from "./Components/Booking/Sidebar/Sidebar";
 import Home from "./Components/Home/Home/Home";
 import CreateAccount from "./Components/Login/CreateAccount/CreateAccount";
 import Login from "./Components/Login/Login.js";
 import AuthProvider from "./Context/AuthContext";
+import PrivateRoute from "./Components/PrivateRoute";
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <AuthProvider>
+      <AuthProvider>
+        <Router>
           <Switch>
-            <Route path="/details/:title">
+            <PrivateRoute path="/details/:title">
               <ApartmentDetails />
-            </Route>
+            </PrivateRoute>
             <Route path="/login">
               <Login />
             </Route>
             <Route path="/createAccount">
               <CreateAccount />
             </Route>
-            <Route path="/bookinglist">
-              <BookingList />
+            <Route path="sidebar">
+              <Sidebar />
             </Route>
+            <PrivateRoute path="/bookinglist">
+              <BookingList />
+            </PrivateRoute>
             <Route path="/myrent">
               <MyRent />
             </Route>
@@ -37,8 +42,8 @@ function App() {
               <Home />
             </Route>
           </Switch>
-        </AuthProvider>
-      </Router>
+        </Router>
+      </AuthProvider>
     </div>
   );
 }

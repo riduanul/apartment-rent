@@ -1,46 +1,82 @@
 .login {
-   
-    border:1px solid gray;
-    width: 400px;
-    height: 430px;
-    margin: 50px auto auto auto;
-    padding: 40px;
-    line-height: 60px;
+  border: 1px solid gray;
+  width: 400px;
+  height: 430px;
+  margin: 20px auto auto auto;
+  padding: 40px;
+  line-height: 60px;
 }
 
-.login input[type=text],[type=password] {
-    border:none;
-    border-bottom: 1px solid gray;
-    width: 100%;
-
+.login input[type="text"],
+[type="password"] {
+  border: none;
+  border-bottom: 1px solid gray;
+  width: 100%;
 }
-.login input[type=text],[type=password]:focus {
-    outline: none;
+.login input[type="text"],
+[type="password"]:focus {
+  outline: none;
 }
 
 .login-btn {
-    margin-top: 10px;
-    width: 100%;
-    background-color: rgb(22, 105, 80);
-    border:none;
-    color:white;
-    cursor: pointer;
-    height: 50px;
-    
+  margin-top: 10px;
+  width: 100%;
+  background-color: rgb(22, 105, 80);
+  border: none;
+  color: white;
+  cursor: pointer;
+  height: 50px;
 }
-.login-btn:hover{
-    background-color: rgb(7, 109, 66);
+.login-btn:hover {
+  background-color: rgb(7, 109, 66);
 }
 
 .check {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
-.check, .login a{
-  text-decoration: none; 
+.check,
+.login a {
+  text-decoration: none;
 }
 .login p {
-    text-align: center;
-    color:black;
+  text-align: center;
+  color: black;
+}
+.extarnal-login {
+  margin-top: 20px;
+}
+.google-login,
+.fb-login {
+  display: flex;
+
+  margin: auto;
+  width: 300px;
+  border: 2px solid rgb(145, 140, 140);
+  border-radius: 50px;
+  background-color: rgba(121, 206, 156, 0.651);
+  cursor: pointer;
+}
+
+.google-login > button,
+.fb-login > button {
+  text-align: center;
+  border: none;
+  background-color: transparent;
+}
+.google-login {
+  margin-bottom: 5px;
+}
+
+.google-login:hover,
+.fb-login:hover {
+  background-color: rgba(58, 175, 117, 0.842);
+}
+
+.ext-btn-1 {
+  margin-left: 50px;
+}
+.ext-btn {
+  margin-left: 42px;
 }

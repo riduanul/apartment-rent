@@ -1,36 +1,89 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
-import './Login.css';
-import Navbar from '../Home/Navbar/Navbar';
-import {Link} from 'react-router-dom';
-
+import React, { useState } from "react";
+import "./Login.css";
+import Navbar from "../Home/Navbar/Navbar";
+import { Link, useHistory } from "react-router-dom";
+import { useAuth } from "../../Context/AuthContext";
+import googleLogo from "../../logos/google.png";
+import fbLogo from "../../logos/fb.png";
 export default function Login() {
-    return (
-        <div>
-            <>
-            <Navbar/>
-            </>
-            <div className="login">
-                <h4>Login</h4>
-                <form action="">
-                    <input type="text" placeholder="Email" />
-                    <input type="password" name="" id="" placeholder="Password" />
-                    <div className="check">
-                        <div>
-                            <input type="checkbox" name="checkbox" id="" />
-                        </div>
-                        <div>
-                            <a href="#">Forgot Password</a>
-                        </div>
-                    </div>
-                    <button className="login-btn">Login</button>
-                </form>
-               <Link to="/createAccount"> <p>Don't have an account? <a href="#">Create an account</a></p></Link>
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState();
+  const [loading, setLoading] = useState(false);
+
+  const { login } = useAuth();
+  const history = useHistory();
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    try {
+      setError("");
+      setLoading(true);
+      await login(email, password);
+      history.push("/");
+    } catch (err) {
+      console.log(err);
+      setLoading(false);
+      setError("Failed to Login!");
+    }
+  }
+
+  return (
+    <div>
+      <>
+        <Navbar />
+      </>
+      <div className="login">
+        <h4>Login</h4>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Email"
+            name="email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <div className="check">
+            <div>
+              <input type="checkbox" name="checkbox" />
             </div>
-           <div className="fb-google">
-            <button className='ad-btn'>Continute with Facebook</button> <br />
-            <button className='ad-btn'>Continute with Google</button>
-           </div>
+            <div>
+              <a href="#">Forgot Password</a>
+            </div>
+          </div>
+          <button disable={loading} type="submit" className="login-btn">
+            Login
+          </button>
+        </form>
+        <Link to="/createAccount">
+          {" "}
+          <p>
+            Don't have an account? <a href="#">Create an account</a>
+          </p>
+        </Link>
+        {error && <p style={{ color: "red" }}>{error}</p>}
+      </div>
+      <div className="extarnal-login">
+        <div className="google-login">
+          <span>
+            <img src={googleLogo} alt="" width="30" />
+          </span>
+          <button className="ext-btn-1">Continute with Google</button> <br />
         </div>
-    )
+        <div className="fb-login">
+          <span>
+            <img src={fbLogo} alt="" width="30" />
+          </span>
+          <button className="ext-btn">Continute with Facebook</button>
+        </div>
+      </div>
+    </div>
+  );
 }

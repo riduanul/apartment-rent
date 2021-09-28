@@ -1,8 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "../Sidebar/Sidebar";
 import "./BookingList.css";
+import { useAuth } from "../../../Context/AuthContext";
 
 export default function BookingList() {
+  const [bookings, setBookings] = useState();
+  const [error, setError] = useState();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/bookings")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          setBookings(data);
+          setLoading(false);
+        } else {
+          setError("Something is wrong");
+        }
+      });
+  }, []);
+  const { currentUser } = useAuth();
   return (
     <div className="row">
       <div className="col-md-2 bar">
@@ -13,34 +31,55 @@ export default function BookingList() {
           <div>
             <h4>Booking List</h4>
           </div>
-          <div>
-            <h6>Riduan</h6>
-          </div>
+          <div>{currentUser && <h6>{currentUser.displayName}</h6>}</div>
         </div>
         <div className="list">
           <table>
-            <tr>
-              <th>Name</th>
-              <th>Email Id</th>
-              <th>Phone No</th>
-              <th>Apartment</th>
-              <th>Status</th>
-            </tr>
-            <tr>
-              <td style={{ width: "25%" }}>Riduanul Haqeu</td>
-              <td style={{ width: "18%" }}>riduanul.haque1@gmail.com</td>
-              <td style={{ width: "12%" }}>01794212131</td>
-              <td style={{ width: "25%" }}>Washington Villa</td>
-              <td style={{ width: "8%" }}>
-                <select name="actions">
-                  <option style={{ backgroundColor: "red" }}>Pending</option>
-                  <option style={{ backgroundColor: "yellow" }}>
-                    Ongoiong
-                  </option>
-                  <option style={{ backgroundColor: "green" }}>Done</option>
-                </select>
-              </td>
-            </tr>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email Id</th>
+                <th>Phone No</th>
+                <th>Apartment</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            {error && <p>{error.massage}</p>}
+            {loading && (
+              <p
+                style={{
+                  textAlign: "center",
+                  color: "green",
+                  marginTop: "30px",
+                }}
+              >
+                Loading...... plsease wait.
+              </p>
+            )}
+            {bookings &&
+              bookings.map((booking) => (
+                <tbody key={booking.name}>
+                  <tr>
+                    <td style={{ width: "25%" }}>{booking.name}</td>
+                    <td style={{ width: "18%" }}>{booking.email}</td>
+                    <td style={{ width: "12%" }}>{booking.phone}</td>
+                    <td style={{ width: "25%" }}>{booking.title}</td>
+                    <td style={{ width: "8%" }}>
+                      <select name="actions">
+                        <option style={{ backgroundColor: "red" }}>
+                          Pending
+                        </option>
+                        <option style={{ backgroundColor: "yellow" }}>
+                          Ongoiong
+                        </option>
+                        <option style={{ backgroundColor: "green" }}>
+                          Done
+                        </option>
+                      </select>
+                    </td>
+                  </tr>
+                </tbody>
+              ))}
           </table>
         </div>
       </div>

@@ -12,7 +12,7 @@
   height: 400px;
   padding: 20px;
   border: 20px solid rgb(202, 194, 194);
-  overflow: hidden;
+  overflow: scroll;
 }
 
 .list table {
