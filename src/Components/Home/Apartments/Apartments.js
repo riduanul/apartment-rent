@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Apartments.css";
 
 import Apartment from "../Apartment/Apartment";
-import { useEffect } from "react/cjs/react.development";
 
 export default function Apartments() {
   const [info, setInfo] = useState();
