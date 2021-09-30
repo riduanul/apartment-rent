@@ -8,11 +8,7 @@ export default function Apartment(props) {
   const { img, title, price } = props.apartment;
   return (
     <div className="apartment">
-      {img.img ? (
-        <img src={`data:image/png;base64,${img.img}`} alt="" />
-      ) : (
-        <img src={img} alt={img} />
-      )}
+      <img src={`data:image/png;base64,${img.img}`} alt="" />
       <span>
         <h5>{title}</h5>
       </span>

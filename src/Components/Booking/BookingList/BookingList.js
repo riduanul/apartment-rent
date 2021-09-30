@@ -9,7 +9,7 @@ export default function BookingList() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/bookings")
+    fetch("https://apartment-hunt-server1.herokuapp.com/bookings")
       .then((res) => res.json())
       .then((data) => {
         if (data) {

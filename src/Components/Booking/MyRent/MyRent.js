@@ -12,7 +12,7 @@ export default function MyRent() {
   const [error, setError] = useState();
 
   useEffect(() => {
-    fetch("http://localhost:5000/bookings")
+    fetch("https://apartment-hunt-server1.herokuapp.com/bookings")
       .then((res) => res.json())
       .then((data) => {
         if (data) {

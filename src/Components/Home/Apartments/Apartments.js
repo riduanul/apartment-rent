@@ -9,7 +9,7 @@ export default function Apartments() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/apartment")
+    fetch("https://apartment-hunt-server1.herokuapp.com/apartment")
       .then((res) => res.json())
       .then((data) => {
         setInfo(data);
@@ -27,10 +27,7 @@ export default function Apartments() {
 
         <div className="apartments">
           {loading && (
-            <p style={{ textAlign: "center", color: "green" }}>
-              {" "}
-              Loading......
-            </p>
+            <p style={{ textAlign: "center", color: "green" }}>Loading......</p>
           )}
           {info &&
             info.map((apartment) => (

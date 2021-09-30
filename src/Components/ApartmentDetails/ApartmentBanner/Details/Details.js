@@ -15,7 +15,7 @@ export default function Details() {
   const { title } = useParams();
 
   useEffect(() => {
-    fetch("http://localhost:5000/apartment")
+    fetch("https://apartment-hunt-server1.herokuapp.com/apartment")
       .then((res) => res.json())
       .then((data) => {
         setInfo(data);
@@ -25,7 +25,7 @@ export default function Details() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:5000/booking", {
+    fetch("https://apartment-hunt-server1.herokuapp.com/booking", {
       method: "POST",
       body: JSON.stringify(bookingInfo),
       headers: { "Content-Type": "application/json" },
@@ -48,16 +48,12 @@ export default function Details() {
             .map((apartment) => (
               <>
                 <div className="home-img image-fluid">
-                  {apartment.img.img ? (
-                    <img
-                      src={`data:image/png;base64,${apartment.img.img}`}
-                      alt=""
-                      width="100%"
-                      height="400"
-                    />
-                  ) : (
-                    <img src={apartment.img} alt="" width="100%" height="400" />
-                  )}
+                  <img
+                    src={`data:image/png;base64,${apartment.img.img}`}
+                    alt=""
+                    width="100%"
+                    height="400"
+                  />
                 </div>
 
                 <div className="room-detail">
@@ -79,19 +75,34 @@ export default function Details() {
                   <h4>{apartment.price}</h4>
                 </div>
                 <div>
+                  <p style={{ color: "gray" }}>
+                    300 sq.ft, 3 Bedrooms, Semi-furnised Luxarious, suthfacing{" "}
+                    <br /> Apartment for Rent in Nasirabad Housing Society,
+                    Chattogram.
+                  </p>
                   <p>{apartment.PriceDetails}</p>
 
                   <h4>Price details--</h4>
 
-                  <p>
+                  <p style={{ color: "gray" }}>
                     Rent/Month: 550 (nagotiable) <br /> service Charge: 8000/-
                     tk per month <br /> Security Deposite: 3 month's rent <br />{" "}
                     Flat Release Policy : 3 moth Erlier notice required.
                   </p>
 
                   <h4>Property Details--</h4>
-
-                  <p>{apartment.propertyDetails}</p>
+                  <p style={{ color: "gray" }}>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Vitae aliquam accusantium minima? Corporis unde dicta aut
+                    velit. In atque minus tempore autem, repudiandae soluta esse
+                    quisquam nulla, officiis aperiam nam impedit suscipit
+                    facere. Odio obcaecati dolorum ipsam quaerat libero porro
+                    deserunt. Mollitia impedit omnis iure natus! Ullam doloribus
+                    animi, quos, reprehenderit vel quam perferendis labore nemo
+                    exercitationem sunt ipsam ratione a, velit eos eum enim
+                    eveniet omnis. Nostrum aliquid nesciunt esse suscipit
+                    cupiditate iure dolor illum laudantium beatae, harum nisi.
+                  </p>
                 </div>
               </>
             ))}

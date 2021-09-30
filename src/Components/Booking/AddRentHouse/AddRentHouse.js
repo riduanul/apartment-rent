@@ -25,7 +25,7 @@ export default function AddRentHouse() {
     data.append("propertyDetails", inputData.propertyDetails);
 
     // data.append("inputs", inputData.price);
-    fetch("http://localhost:5000/newApartment", {
+    fetch("https://apartment-hunt-server1.herokuapp.com/newApartment", {
       method: "POST",
       body: data,
     });
