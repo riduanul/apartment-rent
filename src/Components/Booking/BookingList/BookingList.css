@@ -6,6 +6,11 @@
   height: 80px;
 }
 
+.photoURL {
+  width: 50px;
+  border-radius: 50%;
+}
+
 .list {
   margin: auto auto;
   width: 100%;

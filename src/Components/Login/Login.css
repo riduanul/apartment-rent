@@ -55,7 +55,6 @@
   width: 300px;
   border: 2px solid rgb(145, 140, 140);
   border-radius: 50px;
-  background-color: rgba(121, 206, 156, 0.651);
   cursor: pointer;
 }
 
@@ -71,7 +70,7 @@
 
 .google-login:hover,
 .fb-login:hover {
-  background-color: rgba(58, 175, 117, 0.842);
+  background-color: rgba(15, 90, 53, 0.842);
 }
 
 .ext-btn-1 {

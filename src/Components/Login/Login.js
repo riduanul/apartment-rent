@@ -6,26 +6,30 @@ import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../../Context/AuthContext";
 import googleLogo from "../../logos/google.png";
 import fbLogo from "../../logos/fb.png";
+
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState();
-  const [loading, setLoading] = useState(false);
-
-  const { login } = useAuth();
+  const { login, googleLogin, facebookLogin } = useAuth();
   const history = useHistory();
+
+  const handleGoogle = () => {
+    googleLogin();
+    history.push("/");
+  };
+  const handleFacebook = () => {
+    facebookLogin();
+    history.push("/");
+  };
 
   async function handleSubmit(e) {
     e.preventDefault();
-
     try {
-      setError("");
-      setLoading(true);
       await login(email, password);
       history.push("/");
     } catch (err) {
       console.log(err);
-      setLoading(false);
       setError("Failed to Login!");
     }
   }
@@ -58,26 +62,28 @@ export default function Login() {
               <a href="#">Forgot Password</a>
             </div>
           </div>
-          <button disable={loading} type="submit" className="login-btn">
+          <button type="submit" className="login-btn">
             Login
           </button>
         </form>
-        <Link to="/createAccount">
-          {" "}
-          <p>
-            Don't have an account? <a href="#">Create an account</a>
-          </p>
-        </Link>
+
+        <span>
+          Don't have an account?{" "}
+          <Link to="/createAccount">
+            <a href="#">Create an account</a>
+          </Link>
+        </span>
+
         {error && <p style={{ color: "red" }}>{error}</p>}
       </div>
       <div className="extarnal-login">
-        <div className="google-login">
+        <div className="google-login" onClick={handleGoogle}>
           <span>
             <img src={googleLogo} alt="" width="30" />
           </span>
           <button className="ext-btn-1">Continute with Google</button> <br />
         </div>
-        <div className="fb-login">
+        <div className="fb-login" onClick={handleFacebook}>
           <span>
             <img src={fbLogo} alt="" width="30" />
           </span>

@@ -7,6 +7,7 @@ import { useHistory } from "react-router";
 
 export default function AddRentHouse() {
   const { currentUser } = useAuth();
+  const user = currentUser;
   const location = useHistory();
   const history = location;
   const [inputData, setInputData] = useState("");
@@ -42,7 +43,14 @@ export default function AddRentHouse() {
           <div>
             <h4>Add Rent House</h4>
           </div>
-          <div>{currentUser && <h6>{currentUser.displayName}</h6>}</div>
+          <div>
+            {currentUser && (
+              <div className="d-flex align-items-center ml-2">
+                <img className="photoURL" src={user.photoURL} alt="" />{" "}
+                <h6>{currentUser.displayName}</h6>
+              </div>
+            )}
+          </div>
         </div>
         <div className="addrent">
           <form action="" onSubmit={handleSubmit}>

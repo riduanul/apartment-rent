@@ -5,8 +5,9 @@ import "./MyRent.css";
 
 export default function MyRent() {
   const { currentUser } = useAuth();
+  const user = currentUser;
   const { email } = currentUser;
-  const [user, setUser] = useState();
+  const [userRent, setUserRent] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
 
@@ -15,7 +16,7 @@ export default function MyRent() {
       .then((res) => res.json())
       .then((data) => {
         if (data) {
-          setUser(data);
+          setUserRent(data);
           setLoading(false);
         } else {
           setError("Somethis is wrong");
@@ -33,7 +34,14 @@ export default function MyRent() {
           <div>
             <h4>My Rent</h4>
           </div>
-          <div>{currentUser && <h6>{currentUser.displayName}</h6>}</div>
+          <div>
+            {currentUser && (
+              <div className="d-flex align-items-center ml-2">
+                <img className="photoURL" src={user.photoURL} alt="" />{" "}
+                <h6>{currentUser.displayName}</h6>
+              </div>
+            )}
+          </div>
         </div>
         <div className="rent-list">
           <table>
@@ -54,8 +62,8 @@ export default function MyRent() {
               </p>
             )}
             {error && { error }}
-            {user &&
-              user
+            {userRent &&
+              userRent
                 .filter((loggedInUser) => loggedInUser.email === email)
                 .map((loggedInUser) => (
                   <tbody>

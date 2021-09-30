@@ -21,6 +21,7 @@ export default function BookingList() {
       });
   }, []);
   const { currentUser } = useAuth();
+  const user = currentUser;
   return (
     <div className="row">
       <div className="col-md-2 bar">
@@ -31,7 +32,14 @@ export default function BookingList() {
           <div>
             <h4>Booking List</h4>
           </div>
-          <div>{currentUser && <h6>{currentUser.displayName}</h6>}</div>
+          <div>
+            {currentUser && (
+              <div className="d-flex align-items-center ml-2">
+                <img className="photoURL" src={user.photoURL} alt="" />{" "}
+                <h6>{currentUser.displayName}</h6>
+              </div>
+            )}
+          </div>
         </div>
         <div className="list">
           <table>
@@ -53,12 +61,12 @@ export default function BookingList() {
                   marginTop: "30px",
                 }}
               >
-                Loading...... plsease wait.
+                Loading...... .
               </p>
             )}
             {bookings &&
               bookings.map((booking) => (
-                <tbody key={booking.name}>
+                <tbody key={booking._id}>
                   <tr>
                     <td style={{ width: "25%" }}>{booking.name}</td>
                     <td style={{ width: "18%" }}>{booking.email}</td>
