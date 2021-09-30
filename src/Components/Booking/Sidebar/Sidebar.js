@@ -1,6 +1,7 @@
 import React from "react";
 import "./Sidebar.css";
 import {
+  faUserShield,
   faPlus,
   faListAlt,
   faHome,
@@ -40,6 +41,14 @@ export default function Sidebar() {
             <span>
               {" "}
               <FontAwesomeIcon icon={faHome} /> My Rent
+            </span>
+          </li>
+        </Link>
+        <Link to="admin">
+          <li>
+            <span>
+              
+              <FontAwesomeIcon icon={faUserShield} /> Make Admin
             </span>
           </li>
         </Link>

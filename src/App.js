@@ -10,6 +10,7 @@ import CreateAccount from "./Components/Login/CreateAccount/CreateAccount";
 import Login from "./Components/Login/Login.js";
 import AuthProvider from "./Context/AuthContext";
 import PrivateRoute from "./Components/PrivateRoute";
+import MakeAdmin from "./Components/Booking/MakeAdmin/MakeAdmin";
 
 function App() {
   return (
@@ -34,6 +35,9 @@ function App() {
             </PrivateRoute>
             <Route path="/myrent">
               <MyRent />
+            </Route>
+            <Route path="/admin">
+              <MakeAdmin />
             </Route>
             <Route path="/addrent">
               <AddRentHouse />

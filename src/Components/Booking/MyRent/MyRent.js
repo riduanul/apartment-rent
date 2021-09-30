@@ -62,31 +62,30 @@ export default function MyRent() {
               </p>
             )}
             {error && { error }}
-            {userRent
-              ? userRent
-                  .filter((loggedInUser) => loggedInUser.email === email)
-                  .map((loggedInUser) => (
-                    <tbody>
-                      <tr>
-                        <td>{loggedInUser.title}</td>
-                        <td>{loggedInUser.price}</td>
-                        <td>
-                          <select name="actions">
-                            <option style={{ backgroundColor: "red" }}>
-                              Pending
-                            </option>
-                            <option style={{ backgroundColor: "yellow" }}>
-                              Ongoiong
-                            </option>
-                            <option style={{ backgroundColor: "green" }}>
-                              Done
-                            </option>
-                          </select>
-                        </td>
-                      </tr>
-                    </tbody>
-                  ))
-              : " You have no Booking Request. Please Go to the homepage and make a request for rent."}
+            {userRent &&
+              userRent
+                .filter((loggedInUser) => loggedInUser.email === email)
+                .map((loggedInUser) => (
+                  <tbody>
+                    <tr>
+                      <td>{loggedInUser.title}</td>
+                      <td>{loggedInUser.price}</td>
+                      <td>
+                        <select name="actions">
+                          <option style={{ backgroundColor: "red" }}>
+                            Pending
+                          </option>
+                          <option style={{ backgroundColor: "yellow" }}>
+                            Ongoiong
+                          </option>
+                          <option style={{ backgroundColor: "green" }}>
+                            Done
+                          </option>
+                        </select>
+                      </td>
+                    </tr>
+                  </tbody>
+                ))}
           </table>
         </div>
       </div>
