@@ -10,7 +10,17 @@
 * There is an admin panel 
 * Admin can see the all requests, 
 * Admin can add new apartment to rent
-*
+
+## Technologies i have used in this project
+* JavaScript
+* React
+* React Router
+* Bootstrap
+* Node.Js
+* MongoDB
+* HTML5
+* CSS3
+
 
 # Live Link
 https://apartment-hunt-eb60a.firebaseapp.com/
