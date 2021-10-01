@@ -3,13 +3,13 @@
 
 
 ## Featureas
-* view apartment details
+* View apartment details
 * Request for booking
-* can see the request order in the order list
-* cant see the progres of order
-* there is an admin panel 
-* admin can see the all requests, 
-* admin can add new apartment to rent
+* User can see the request order in the order list
+* User can see the progress of order
+* There is an admin panel 
+* Admin can see the all requests, 
+* Admin can add new apartment to rent
 *
 
 # Live Link
