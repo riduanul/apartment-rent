@@ -15,9 +15,10 @@
 * JavaScript
 * React
 * React Router
+* Firebase Authentication and deployment
 * Bootstrap
-* Node.Js
-* MongoDB
+* Node.Js (for backend)
+* MongoDB (for Database)
 * HTML5
 * CSS3
 
